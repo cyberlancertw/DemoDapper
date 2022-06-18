@@ -5,17 +5,16 @@ namespace DemoDapper.Controllers
 {
     public class OrderController : Controller
     {
-        private readonly OrderFactory _factory;
+        private readonly IFactory<Order> _factory;
 
         public OrderController(IFactory<Order> factory)
         {
-            _factory = factory as OrderFactory;
+            _factory = factory;
         }
 
         public IActionResult Detail(int id)
         {
-            IEnumerable<Order> result = null;
-            result = _factory.Detail(id);
+            IEnumerable<Order> result = _factory.Detail(id);
             return View(result);
         }
         public IActionResult Index()
