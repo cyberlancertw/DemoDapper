@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DemoDapper.Models.Order>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>訂單編號</th>
+            <th>產品名稱</th>
+            <th>個數</th>
+            <th>訂單時間</th>
+            <th>單價</th>
+            <th>總價</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null)
+        {
+            foreach(Order item in Model)
+            {
+                int total = item.Price * item.Quantity;
+                <tr>
+                    <td>@item.OrderId</td>
+                    <td>@item.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.OrderDate.ToShortDateString()</td>
+                    <td>@item.Price</td>
+                    <td>@total</td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>

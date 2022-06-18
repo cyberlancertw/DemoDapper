@@ -1,0 +1,23 @@
+﻿<table class="table">
+    <thead>
+        <tr>
+            <th>名稱</th><th>價格</th><th></th>
+        </tr>
+    </thead>
+@using(Html.BeginForm()){
+    <tbody>
+        <tr>
+            <td>
+                @Html.TextBox("Name", "", new { placeholder = "輸入產名名稱"})
+            </td>
+            <td>
+                @Html.TextBox("Price", "", new { placeholder = "輸入價格", @type = "number"})
+            </td>
+            <td>
+                @Html.TextBox("btnSubmit", "送出", new { @type = "submit", @class="btn btn-success"})
+            </td>
+        </tr>
+    </tbody>
+}
+
+</table>
